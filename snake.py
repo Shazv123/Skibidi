@@ -10,8 +10,8 @@ score_font = pygame.font.SysFont("consolas", 20)  # or any other font you'd like
 score = 0
 
 # color definition
-YELLOW = (64,224,228)
-GREEN = (0,255,0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
 
 # initialize pygame
 pygame.init()
@@ -42,10 +42,10 @@ food_pos = generate_food()
 def draw_objects():
     win.fill((0, 0, 0))
     for pos in snake_pos:
-        pygame.draw.rect(win, YELLOW, pygame.Rect(pos[0], pos[1], BLOCK_SIZE, BLOCK_SIZE))
-    pygame.draw.rect(win, GREEN, pygame.Rect(food_pos[0], food_pos[1], BLOCK_SIZE, BLOCK_SIZE))
+        pygame.draw.rect(win, WHITE, pygame.Rect(pos[0], pos[1], BLOCK_SIZE, BLOCK_SIZE))
+    pygame.draw.rect(win, RED, pygame.Rect(food_pos[0], food_pos[1], BLOCK_SIZE, BLOCK_SIZE))
     # Render the score
-    score_text = score_font.render(f"Score: {score}", True, GREEN)
+    score_text = score_font.render(f"Score: {score}", True, WHITE)
     win.blit(score_text, (10, 10))  # draws the score on the top-left corner
 
 
@@ -89,7 +89,7 @@ def game_over_screen():
     global score
     win.fill((0, 0, 0))
     game_over_font = pygame.font.SysFont("consolas", 50)
-    game_over_text = game_over_font.render(f"Game Over! Score: {score}", True, YELLOW)
+    game_over_text = game_over_font.render(f"Game Over! Score: {score}", True, WHITE)
     win.blit(game_over_text, (WIDTH // 2 - game_over_text.get_width() // 2, HEIGHT // 2 - game_over_text.get_height() // 2))
     pygame.display.update()
 
